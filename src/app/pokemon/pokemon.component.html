@@ -2,7 +2,7 @@
   <img class="card-img-top img-responsive mt-1" src="assets/pokemon.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">
-      <a href="#" (click)="viewPokemon(pokemon)">{{ pokemon.name }}</a>
+      <a href="{{ pokemon.url | pokemonLink }}">{{ pokemon.name }}</a>
     </h5>
   </div>
 </div>
