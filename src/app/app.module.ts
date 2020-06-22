@@ -5,12 +5,14 @@ import {AppRoutingModule, routeComponents} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PokemonComponent} from './pokemon/pokemon.component';
+import {PokemonLink} from './pipes/pokemon.link';
 
 @NgModule({
   declarations: [
     AppComponent,
     routeComponents,
     PokemonComponent,
+    PokemonLink
   ],
   imports: [
     BrowserModule,
