@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PokemonService} from '../pokemon.service';
 import {PokemonsResponse} from '../server-responses/pokemons.response';
-import {HttpErrorResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,13 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  public pokemons: PokemonsResponse;
+  public pokemons$: Observable<PokemonsResponse>;
 
   constructor(private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemons(30)
-      .subscribe(response => this.pokemons = response,
-        (error: HttpErrorResponse) => alert(error.message));
+    this.pokemons$ = this.pokemonService.getPokemons(30)
+      .pipe(catchError(err => throwError(err)));
   }
 }
