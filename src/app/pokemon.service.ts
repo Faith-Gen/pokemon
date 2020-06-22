@@ -3,6 +3,7 @@ import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {catchError, shareReplay} from 'rxjs/operators';
 import {PokemonsResponse} from './server-responses/pokemons.response';
+import {Pokemon} from './models/pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,15 @@ export class PokemonService {
     return this.http.get<PokemonsResponse>(url ?? PokemonService.API_URL, {params})
       .pipe(catchError(err => throwError(err)),
         shareReplay());
+  }
+
+  /**
+   * Get single pokemon details.
+   *
+   * @param id
+   */
+  getPokemon(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(PokemonService.API_URL + `/${id}`)
+      .pipe(catchError(err => throwError(err)));
   }
 }
