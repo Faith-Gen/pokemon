@@ -22,6 +22,13 @@ export class PokemonService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Fetches pokemons from the server.
+   * If url is not specified it uses the default url. This is done for pagination reasons.
+   *
+   * @param limit
+   * @param url
+   */
   getPokemons(limit: number, url?: string): Observable<PokemonsResponse> {
     let params: HttpParams = new HttpParams();
 
@@ -33,5 +40,11 @@ export class PokemonService {
     return this.http.get<PokemonsResponse>(url ?? PokemonService.API_URL, {params})
       .pipe(catchError(err => throwError(err)),
         shareReplay());
+  }
+
+  getPokemonId(url: string): number {
+    const stringIds = url.split('/').filter(val => val.length !== 0 && !isNaN(val));
+    // tslint:disable-next-line:radix
+    return parseInt(stringIds[0]);
   }
 }

@@ -20,5 +20,4 @@ export class HomeComponent implements OnInit {
       .subscribe(response => this.pokemons = response,
         (error: HttpErrorResponse) => alert(error.message));
   }
-
 }
