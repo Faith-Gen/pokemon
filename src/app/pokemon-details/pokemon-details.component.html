@@ -1,3 +1,133 @@
 <div class="row">
   <app-pokemon [pokemon]="pokemon" class="col-md-3"></app-pokemon>
+  <div class="col-md-9">
+    <table class="table table-striped table-bordered mt-1">
+      <thead>
+      <tr>
+        <th scope="col">Key</th>
+        <th scope="col">Value</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Name :</td>
+        <td>{{ pokemon.name }}</td>
+      </tr>
+      <tr>
+        <td>Base Experience :</td>
+        <td>{{ pokemon.base_experience }}</td>
+      </tr>
+      <tr>
+        <td>Height :</td>
+        <td>{{ pokemon.height }}</td>
+      </tr>
+      <tr>
+        <td>Weight :</td>
+        <td>{{ pokemon.weight }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mt-2">
+    <table class="table table-striped table-bordered">
+      <caption>Types</caption>
+      <thead>
+      <tr>
+        <th scope="col">Slot</th>
+        <th scope="col">Name</th>
+        <th scope="col">Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let type of pokemon.types">
+        <th scope="row">{{ type.slot }}</th>
+        <td>{{ type.type.name }}</td>
+        <td>
+          <a href="{{ type.type.url }}" target="_blank">
+            {{ type.type.url }}
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mt-2">
+    <table class="table table-striped table-bordered">
+      <caption>Abilities</caption>
+      <thead>
+      <tr>
+        <th scope="col">Slot</th>
+        <th scope="col">Name</th>
+        <th scope="col">Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ability of pokemon.abilities">
+        <th scope="row">{{ ability.slot }}</th>
+        <td>{{ ability.ability.name }}</td>
+        <td>
+          <a href="{{ ability.ability.url }}" target="_blank">
+            {{ ability.ability.url }}
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mt-2">
+    <table class="table table-striped table-bordered">
+      <caption>Stats</caption>
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Base Stat</th>
+        <th scope="col">Effort</th>
+        <th scope="col">Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stat of pokemon.stats">
+        <th scope="row">{{ stat.stat.name }}</th>
+        <td>{{ stat.base_stat }}</td>
+        <td>{{ stat.effort }}</td>
+        <td>
+          <a href="{{ stat.stat.url }}" target="_blank">
+            {{ stat.stat.url }}
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mt-2">
+    <table class="table table-striped table-bordered">
+      <caption>Moves</caption>
+      <thead>
+      <tr>
+        <th scope="col">Move</th>
+        <th scope="col">Name</th>
+        <th scope="col">Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let move of pokemon.moves; let i = index">
+        <td>{{ i + 1}}</td>
+        <th scope="row">{{ move.move.name }}</th>
+        <td>
+          <a href="{{ move.move.url }}" target="_blank">
+            {{ move.move.url }}
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
