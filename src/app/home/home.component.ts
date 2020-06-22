@@ -20,4 +20,9 @@ export class HomeComponent implements OnInit {
     this.pokemons$ = this.pokemonService.getPokemons(30)
       .pipe(catchError(err => throwError(err)));
   }
+
+  fetchPokemons(url: string){
+    this.pokemons$ = this.pokemonService.getPokemons(30, url)
+      .pipe(catchError(err => throwError(err)));
+  }
 }

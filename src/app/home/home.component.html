@@ -1,5 +1,9 @@
+<div class="text-center" *ngIf="!(pokemons$ | async)">
+  <img src="assets/tenor.gif" alt="">
+</div>
+
 <div class="my-class" *ngIf="(pokemons$ | async) as pokemons">
-  <div class="row" *ngIf="(pokemons$ | async) as pokemons">
+  <div class="row">
     <div class="col-md-12 text-center mt-2">
       <h3>{{ pokemons.count }} Pokemons total!</h3>
     </div>
@@ -9,10 +13,10 @@
   </div>
   <nav aria-label="Page navigation example" class="mt-3">
     <ul class="pagination justify-content-center">
-      <li class="page-item" [class.disabled]="!pokemons.previous">
+      <li class="page-item" [class.disabled]="!pokemons.previous" (click)="fetchPokemons(pokemons.previous)">
         <a class="page-link" href="#" tabindex="-1">Previous</a>
       </li>
-      <li class="page-item" [class.disabled]="!pokemons.next">
+      <li class="page-item" [class.disabled]="!pokemons.next" (click)="fetchPokemons(pokemons.next)">
         <a class="page-link" href="#">Next</a>
       </li>
     </ul>
