@@ -42,6 +42,11 @@ export class PokemonService {
         shareReplay());
   }
 
+  /**
+   * Fetches pokemon id from pokemon url.
+   *
+   * @param url
+   */
   getPokemonId(url: string): number {
     const stringIds = url.split('/').filter(val => val.length !== 0 && !isNaN(val));
     // tslint:disable-next-line:radix
