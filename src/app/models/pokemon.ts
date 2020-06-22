@@ -3,6 +3,7 @@ import {Data} from './pokemon/data';
 import {Type} from './pokemon/type';
 import {Sprites} from './pokemon/sprites';
 import {Move} from './pokemon/move';
+import {Stat} from './pokemon/stat';
 
 export interface Pokemon extends Data {
   base_experience: number;
@@ -13,4 +14,5 @@ export interface Pokemon extends Data {
   height: number;
   sprites: Sprites;
   moves: Move[];
+  stats: Stat[];
 }

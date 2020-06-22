@@ -21,9 +21,6 @@ export class PokemonDetailsComponent implements OnInit {
     // tslint:disable-next-line:radix
     this.pokemonId = parseInt(this.route.snapshot.paramMap.get('id'));
     this.pokemonService.getPokemon(this.pokemonId)
-      .subscribe(response => {
-        this.pokemon = response;
-        console.log(this.pokemon);
-      });
+      .subscribe(response => this.pokemon = response);
   }
 }
