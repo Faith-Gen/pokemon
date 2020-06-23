@@ -12,7 +12,7 @@ import {PokemonLink} from './pipes/pokemon.link';
     AppComponent,
     routeComponents,
     PokemonComponent,
-    PokemonLink
+    PokemonLink,
   ],
   imports: [
     BrowserModule,
